@@ -7,6 +7,17 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "bootstrap";
+import "@fortawesome/fontawesome-free/css/all.css"
+import "../stylesheets/application";
+import "controllers"
+
+
+
+$(document).on('ready turbolinks:load', () => {
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();
+});
 
 Rails.start()
 Turbolinks.start()
