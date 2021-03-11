@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_project
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
@@ -23,6 +24,7 @@ class TasksController < ApplicationController
   # POST projects/1/tasks
   def create
     @task = @project.tasks.build(task_params)
+    @task.user_id = current_user.id if current_user
 
     if @task.save
       redirect_to([@task.project, @task], notice: 'Task was successfully created.')
@@ -59,6 +61,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :description, :status, :project_id)
+      params.require(:task).permit(:name, :description, :status, :project_id, :user_id)
     end
 end
