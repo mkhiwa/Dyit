@@ -1,0 +1,29 @@
+<h1>Listing materials</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Total</th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @materials.each do |material| %>
+  <tr>
+    <td><%= material.name %></td>
+    <td><%= material.cost %></td>
+    <td><%= material.total %></td>
+    <td><%= material.project %></td>
+    <td><%= link_to 'Show', [material.project, material] %></td>
+    <td><%= link_to 'Edit', edit_project_material_path(material.project, material) %></td>
+    <td><%= link_to 'Destroy', [material.project, material], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Material', new_project_material_path(params[:project_id]) %>

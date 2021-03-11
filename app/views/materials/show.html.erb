@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @material.name %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @material.cost %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @material.total %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @material.project %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_material_path(@material.project, @material) %> |
+<%= link_to 'Back', project_materials_path(@material.project) %>
