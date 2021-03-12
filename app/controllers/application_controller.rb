@@ -6,6 +6,20 @@ class ApplicationController < ActionController::Base
      user == current_user
   end
 
+  def after_sign_in_path_for(resource)
+     if resource.role == 'admin'
+      projects_path
+     elsif resource.role == 'staff'
+      project_path(@project)
+     else
+  	  root_path
+     end
+    end
+  helper_method :admin?
+    def landlord?
+      current_user && current_user.role == "admin"
+    end
+
      protected
 
           def configure_permitted_parameters

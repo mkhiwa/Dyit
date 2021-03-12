@@ -37,7 +37,7 @@
     <h4>Tasks</h4>
     <div data-controller="tasks">
       <ul id='tasks-list' data-action="drop->tasks#sort">
-        <% @project.tasks.order(position: :asc).each do |task| %>
+        <% @project.tasks.order(position: :desc).each do |task| %>
           <% if task.persisted? %>
             <li class='task-item' data-task-id="<%= task.id %>">
               <div class="card mb-3">
