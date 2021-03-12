@@ -46,7 +46,7 @@
                     <div class='task-status mb-3'>
                       <i class="fas fa-grip-vertical grip text-secondary mr-1"></i>
                       <%= render(ProgressBadgeComponent.new(status: task.status)) %>
-                      <%= time_ago_in_words task.created_at %>
+                      <small><%= time_ago_in_words task.created_at %></small>
                     </div>
 
                     <div>
@@ -64,7 +64,7 @@
                             </a>
                           <% end %>
                         </div>
-                        <%= time_ago_in_words task.updated_at %>
+                        <small><%= time_ago_in_words task.updated_at %></small>
                       </div>
                       <%= link_to edit_project_task_path(task.project, task), class: 'btn btn-light btn-sm' do %>
                         <i class='far fa-edit'></i>
